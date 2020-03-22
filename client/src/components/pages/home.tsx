@@ -1,7 +1,13 @@
 import * as React from 'react';
+import logo from '../../images/logo.png';
 
 const Home: React.FC = () => {
-    return <p>Home Page</p>;
+    return (
+        <>
+            <h1>Home Page</h1>
+            <img src={logo} style={{ width: 400 }} />
+        </>
+    );
 };
 
 export default Home;
