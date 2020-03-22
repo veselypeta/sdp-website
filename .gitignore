@@ -1,0 +1,7 @@
+.idea
+.vscode
+
+# Generated local files
+client/build
+node_modules/
+client/node_modules/
