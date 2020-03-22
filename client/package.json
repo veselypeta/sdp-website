@@ -23,7 +23,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{ts,tsx}' --max-warnings=0 --no-ignore",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "test:coverage": "npm test -- --watchAll=false --coverage --ci --runInBand"
   },
   "husky": {
     "hooks": {
