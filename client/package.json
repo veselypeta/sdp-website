@@ -18,10 +18,20 @@
     "typescript": "^3.7.5"
   },
   "scripts": {
+    "compile": "tsc -p tsconfig.json --noEmit",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint 'src/**/*.{ts,tsx}' --max-warnings=0 --no-ignore",
+    "lint:fix": "npm run lint -- --fix",
+    "test:coverage": "npm test -- --watchAll=false --coverage --ci --runInBand"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run compile && npm run lint && npm run test:coverage",
+      "pre-push": "npm run compile && npm run lint && npm run test:coverage"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,6 +54,7 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
     "prettier": "^2.0.1",
     "tslint": "^6.1.0"
   }
