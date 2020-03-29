@@ -1,0 +1,20 @@
+{
+  "name": "sdp-website",
+  "version": "1.0.0",
+  "description": "### Prerequisites - node  -   12.10.0 or greater - npm   -   6.10.0 or greater",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veselypeta/sdp-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/veselypeta/sdp-website/issues"
+  },
+  "homepage": "https://github.com/veselypeta/sdp-website#readme"
+}
