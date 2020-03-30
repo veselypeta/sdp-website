@@ -1,6 +1,8 @@
 import path from 'path';
 import express from 'express';
 
+import { router as commentRouter } from './routes/comments';
+
 const app = express();
 const port = 3000;
 
@@ -8,12 +10,10 @@ const port = 3000;
 app.use(express.static(path.join(__dirname, '../client')));
 
 
-app.get('/api', (req, res) => {
-    res.send('The sedulous hyena ate the antelope!');
-});
+app.use('/api', commentRouter);
 
 // Handles any requests that don't match the ones above
-app.get('*', (req,res) =>{
+app.get('*', (req,res) => {
     res.sendFile(path.join(__dirname+'/../client/index.html'));
 });
 
