@@ -6,3 +6,5 @@ client/build
 node_modules/
 client/node_modules/
 client/coverage
+/build
+/dist
