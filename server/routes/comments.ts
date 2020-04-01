@@ -20,7 +20,8 @@ router.get('/comments', (req, res) => {
 });
 
 router.post('/comment', (req, res) => {
-    const { message, sender } = req.body;
+    const { name: sender } = req.cookies;
+    const { message } = req.body;
     if (!(message && sender)) {
         return res.status(500).send(`required options not met`);
     }
@@ -45,7 +46,8 @@ router.get('/replies/:commentId', (req, res) => {
 });
 
 router.post('/reply', async (req, res) => {
-    const { message, rootCommentId, sender } = req.body;
+    const { name: sender } = req.cookies;
+    const { message, rootCommentId } = req.body;
     if (!(message && rootCommentId && sender)) {
         return res.status(500).send(`required options not met`);
     }
