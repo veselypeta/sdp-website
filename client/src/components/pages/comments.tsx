@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { useCookies } from 'react-cookie';
 import { CommentCard } from '../organisms/comment-card';
@@ -6,14 +6,16 @@ import { data } from '../organisms/comment-card/fixtures/comment.fixtures';
 
 const Comments: React.FC = () => {
     const [cookies, setCookie, removeCookie] = useCookies(['name']);
+    console.log(cookies);
 
     const [visible, setVisible] = useState(!Boolean(cookies.name));
     const [username, setUsername] = useState<string>();
+    const [result, setResult] = useState<string>();
     const handleClose = (): void => setVisible(false);
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
         event.preventDefault();
         if (username) {
-            setCookie('name', username, { path: '/comments' });
+            setCookie('name', username, { path: '/' });
             handleClose();
         }
     };
@@ -23,14 +25,23 @@ const Comments: React.FC = () => {
         setUsername(newValue);
     };
 
+    useEffect(() => {
+        fetch('/api/comment', {
+            credentials: 'include',
+        })
+            .then((res) => res.json())
+            .then((res) => setResult(res));
+    }, []);
+
     return (
         <>
             <h1>Comments</h1>
             {cookies.name && <p>{cookies.name}</p>}
-            <Button onClick={(): void => removeCookie('name', { path: '/comments' })}>Remove Cookie</Button>
+            <Button onClick={(): void => removeCookie('name', { path: '/' })}>Remove Cookie</Button>
             {data.map((c) => (
                 <CommentCard {...c} key={c.id} />
             ))}
+            <p>{result?.toString()}</p>
             <Modal
                 show={visible}
                 size="lg"
