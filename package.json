@@ -6,6 +6,8 @@
   "scripts": {
     "start": "tsc --esModuleInterop && node ./build/server/app.js",
     "start:watch": "nodemon",
+    "start:client": "cd ./client && npm run start",
+    "dev": "concurrently --kill-others-on-fail \"npm run start:client\" \"npm run start:watch\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc && cd ./client && npm run build"
   },
@@ -25,6 +27,7 @@
     "@types/node": "^13.9.5",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
+    "concurrently": "^5.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-import": "^2.20.2",

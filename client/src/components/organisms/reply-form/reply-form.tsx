@@ -1,25 +1,43 @@
 import React, { useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import { Button } from 'react-bootstrap';
+import { Button, Spinner, Form } from 'react-bootstrap';
 
-export const ReplyForm: React.FC = () => {
+interface Props {
+    rootCommentId: string;
+}
+
+export const ReplyForm: React.FC<Props> = ({ rootCommentId }: Props) => {
     const [replyMessage, setReplyMessage] = useState<string>();
+    const [submitting, setSubmitting] = useState(false);
     const handleChange = (e: React.FormEvent<HTMLInputElement>): void => {
         setReplyMessage(e.currentTarget.value);
     };
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
-        e.preventDefault();
-        setReplyMessage('');
-        // TODO -- send reply to server;
-        console.log(replyMessage);
+    const handleSubmit = (): void => {
+        setSubmitting(true);
+        const payload = JSON.stringify({
+            message: replyMessage,
+            rootCommentId,
+        });
+        fetch('/api/reply', {
+            method: 'POST',
+            body: payload,
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }).then((res) => {
+            if (res.status !== 200) {
+                alert('An error occurred when submitting your reply');
+            }
+            setSubmitting(false);
+        });
     };
     return (
         <Form onSubmit={handleSubmit}>
             <Form.Group>
-                <Form.Control onChange={handleChange} placeholder="Comment" required value={replyMessage} />
+                <Form.Control onChange={handleChange} placeholder="Reply" required value={replyMessage} />
             </Form.Group>
             <Button variant="primary" type="submit">
-                Send
+                {submitting ? <Spinner animation={'border'} /> : 'Send'}
             </Button>
         </Form>
     );

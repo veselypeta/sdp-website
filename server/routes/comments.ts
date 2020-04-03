@@ -35,7 +35,7 @@ router.get('/replies/:commentId', (req, res) => {
     const { commentId } = req.params;
     const db = getDB();
     try {
-        const replies = db.getData(`/replies/${commentId}[]`);
+        const replies = db.getData(`/replies/${commentId}`);
         res.status(202).send(replies);
     } catch (e) {
         if (e instanceof DataError && e.id === 5) {
