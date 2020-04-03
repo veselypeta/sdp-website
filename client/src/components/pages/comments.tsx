@@ -1,19 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { useCookies } from 'react-cookie';
+import { NewCommentCard } from '../organisms/new-comment-card';
 import { CommentCard } from '../organisms/comment-card';
-import { data } from '../organisms/comment-card/fixtures/comment.fixtures';
+
+export interface Comment {
+    id: string;
+    message: string;
+    sender: string;
+    timestamp: Date;
+}
 
 const Comments: React.FC = () => {
     const [cookies, setCookie, removeCookie] = useCookies(['name']);
+    const isCookie = Boolean(cookies.name);
 
-    const [visible, setVisible] = useState(!Boolean(cookies.name));
+    const [visible, setVisible] = useState(!isCookie);
     const [username, setUsername] = useState<string>();
+    const [comments, setComments] = useState<Comment[]>([]);
+
+    if (!isCookie && !visible) {
+        window.location.reload();
+    }
     const handleClose = (): void => setVisible(false);
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
         event.preventDefault();
         if (username) {
-            setCookie('name', username, { path: '/comments' });
+            setCookie('name', username, { path: '/' });
             handleClose();
         }
     };
@@ -23,14 +36,30 @@ const Comments: React.FC = () => {
         setUsername(newValue);
     };
 
+    useEffect(() => {
+        fetch('/api/comments', {
+            credentials: 'include',
+        })
+            .then((res) => res.json())
+            .then((res) => setComments(res));
+    }, []);
+
+    const sortedComments = comments.sort((a, b) => {
+        const firstDate = new Date(a.timestamp).getTime();
+        const secondDate = new Date(b.timestamp).getTime();
+        return secondDate - firstDate;
+    });
+
     return (
         <>
             <h1>Comments</h1>
-            {cookies.name && <p>{cookies.name}</p>}
-            <Button onClick={(): void => removeCookie('name', { path: '/comments' })}>Remove Cookie</Button>
-            {data.map((c) => (
-                <CommentCard {...c} key={c.id} />
+            <NewCommentCard />
+            {sortedComments.map((c) => (
+                <CommentCard {...c} key={c.id}>
+                    {c.message}
+                </CommentCard>
             ))}
+            <Button onClick={(): void => removeCookie('name', { path: '/' })}>Remove Cookie</Button>
             <Modal
                 show={visible}
                 size="lg"
@@ -43,14 +72,9 @@ const Comments: React.FC = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <Form onSubmit={handleSubmit}>
-                        <Form.Group controlId="formBasicUsername">
+                        <Form.Group>
                             <Form.Label>Username</Form.Label>
-                            <Form.Control
-                                type="username"
-                                placeholder="Enter a username"
-                                onChange={handleUsernameChange}
-                                required
-                            />
+                            <Form.Control placeholder="Enter a username" onChange={handleUsernameChange} required />
                         </Form.Group>
                         <Button variant="primary" type="submit">
                             Submit

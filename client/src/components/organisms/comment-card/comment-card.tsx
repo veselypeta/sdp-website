@@ -1,26 +1,44 @@
-import React, { useState } from 'react';
-import { Card, Button } from 'react-bootstrap';
-import { Comment, replies } from './fixtures/comment.fixtures';
+import React, { useState, useEffect } from 'react';
+import { Card, Container } from 'react-bootstrap';
 import { ReplyForm } from '../reply-form';
 import { CommentReply } from '../comment-reply';
+import { Comment } from '../../pages/comments';
 
-export const CommentCard: React.FC<Comment> = ({ id, commenter, message, timestamp }: Comment) => {
-    const [openReply, setOpenReply] = useState(false);
-    const toggleOpenReply = (): void => setOpenReply(!openReply);
-    const readableDate = `${timestamp.getHours()}:${timestamp.getMinutes()}`;
-    const filteredReplies = replies.filter((r) => r.rootCommentId === id);
+export interface Reply {
+    id: string;
+    message: string;
+    rootCommentId: string;
+    sender: string;
+    timestame: Date;
+}
+
+export const CommentCard: React.FC<Comment> = ({ id, sender, message, timestamp }: Comment) => {
+    const [replies, setReplies] = useState<Reply[]>([]);
+
+    useEffect(() => {
+        fetch(`/api/replies/${id}`)
+            .then((res) => res.json())
+            .then((json) => setReplies(json));
+    }, [id]);
+
+    const parsedDate = new Date(timestamp);
+    const formattedTime = `${parsedDate.getHours()}:${parsedDate.getMinutes()}`;
+
     return (
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ marginTop: '1rem' }}>
             <Card.Body>
-                <Card.Title>{commenter}</Card.Title>
-                <Card.Subtitle>{`posted at: ${readableDate}`}</Card.Subtitle>
+                <Card.Title>{sender}</Card.Title>
+                <Card.Subtitle style={{ fontSize: '10', color: 'grey' }}>{`posted - ${formattedTime}`}</Card.Subtitle>
                 <Card.Text>{message}</Card.Text>
             </Card.Body>
-            {filteredReplies.map((r) => (
-                <CommentReply {...r} key={r.id} />
-            ))}
-            {openReply && <ReplyForm />}
-            <Button onClick={toggleOpenReply}>{openReply ? 'Close Reply' : 'Reply'}</Button>
+            <Container style={{ margin: '5px' }}>
+                <p>Replies</p>
+                {replies.map((r) => (
+                    <CommentReply {...r} key={r.id} />
+                ))}
+                <ReplyForm rootCommentId={id} />
+            </Container>
         </Card>
     );
 };
+// <Button onClick={toggleOpenReply}>{openReply ? 'Close Reply' : 'Reply'}</Button>
