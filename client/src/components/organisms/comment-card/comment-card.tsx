@@ -9,7 +9,7 @@ export interface Reply {
     message: string;
     rootCommentId: string;
     sender: string;
-    timestame: Date;
+    timestamp: Date;
 }
 
 export const CommentCard: React.FC<Comment> = ({ id, sender, message, timestamp }: Comment) => {
@@ -31,7 +31,7 @@ export const CommentCard: React.FC<Comment> = ({ id, sender, message, timestamp 
                 <Card.Subtitle style={{ fontSize: '10', color: 'grey' }}>{`posted - ${formattedTime}`}</Card.Subtitle>
                 <Card.Text>{message}</Card.Text>
             </Card.Body>
-            <Container style={{ margin: '5px' }}>
+            <Container style={{ margin: '5px' }} data-testid="replies">
                 <p>Replies</p>
                 {replies.map((r) => (
                     <CommentReply {...r} key={r.id} />
@@ -41,4 +41,3 @@ export const CommentCard: React.FC<Comment> = ({ id, sender, message, timestamp 
         </Card>
     );
 };
-// <Button onClick={toggleOpenReply}>{openReply ? 'Close Reply' : 'Reply'}</Button>
