@@ -1,52 +1,25 @@
-export interface Comment {
-    id: string;
-    commenter: string;
-    message: string;
-    timestamp: Date;
-}
-
-export interface Reply {
-    id: string;
-    rootCommentId: string;
-    commenter: string;
-    message: string;
-    timestamp: Date;
-}
+import { Reply } from '../comment-card';
 
 export const replies: Reply[] = [
     {
         id: '1',
-        rootCommentId: '1',
-        commenter: 'Steve',
-        message: 'I dont like this comment',
-        timestamp: new Date(),
-    },
-    {
-        id: '2',
-        rootCommentId: '1',
-        commenter: 'Jimmy',
-        message: 'Well you can just die then!',
-        timestamp: new Date(),
-    },
-];
-
-export const data: Comment[] = [
-    {
-        id: '1',
-        commenter: 'Petr',
+        sender: 'Petr',
         message: 'this project sucks',
+        rootCommentId: '31',
         timestamp: new Date(),
     },
     {
         id: '2',
-        commenter: 'Hugh Mungus',
+        sender: 'Hugh Mungus',
         message: 'this project is the best thing ever',
+        rootCommentId: '31',
         timestamp: new Date('02/25/15'),
     },
     {
         id: '3',
-        commenter: 'Silly gooly',
+        sender: 'Silly gooly',
         message: 'this project has some good parts',
+        rootCommentId: '31',
         timestamp: new Date('06/25/15'),
     },
 ];
