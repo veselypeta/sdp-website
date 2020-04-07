@@ -1,0 +1,1 @@
+export * from './pento-logo';
