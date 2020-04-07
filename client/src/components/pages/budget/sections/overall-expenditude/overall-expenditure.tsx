@@ -1,5 +1,6 @@
 import React from 'react';
 import { Figure } from 'react-bootstrap';
+import { CenteredFigure } from '../../../../atoms/centered-figure';
 import mdf from '../../../../../images/mdf.jpg';
 import m12Threads from '../../../../../images/m12threads.png';
 import mould from '../../../../../images/mould.png';
@@ -28,15 +29,19 @@ export const OverallExpenditureSection: React.FC = () => {
                 quality and uses we wanted.
             </p>
 
-            <figure className="text-center">
-                <Figure.Image src={mdf} alt={'mdf-image'} style={{ width: '30%' }} />
-                <Figure.Caption>
-                    Image via{' '}
-                    <a href="https://www.addicted2decorating.com/mdf-vs-plywood-differences-pros-and-cons-and-when-to-use-what.html">
-                        addicted2decorating
-                    </a>
-                </Figure.Caption>
-            </figure>
+            <CenteredFigure
+                src={mdf}
+                alt="mdf-image"
+                styles={{ width: '35%' }}
+                caption={
+                    <>
+                        Image via{' '}
+                        <a href="https://www.addicted2decorating.com/mdf-vs-plywood-differences-pros-and-cons-and-when-to-use-what.html">
+                            addicted2decorating
+                        </a>
+                    </>
+                }
+            />
 
             <p>
                 The rails on which the platforms run up and down are cut from 5 1m M-12 threaded bars which we spent a
@@ -45,10 +50,12 @@ export const OverallExpenditureSection: React.FC = () => {
                 little waste but also enough material to test and iterate our designs on.
             </p>
 
-            <figure className="text-center">
-                <Figure.Image src={m12Threads} alt={'m12-threads-image'} style={{ width: '50%' }} />
-                <Figure.Caption>M12 threaded bars in the system</Figure.Caption>
-            </figure>
+            <CenteredFigure
+                src={m12Threads}
+                alt="m12-threads-image"
+                caption="M12 threaded bars in the system"
+                styles={{ width: '50%' }}
+            />
 
             <p>
                 One of the most critical points of contention was the material the actual gripping part of the grippers
@@ -67,10 +74,12 @@ export const OverallExpenditureSection: React.FC = () => {
                 iteration. In combination with the cost of the silicon used, the grippers cost us £17.78.
             </p>
 
-            <figure className="text-center">
-                <Figure.Image src={mould} alt={'gripper-moulds-image'} style={{ width: '50%' }} />
-                <Figure.Caption>gripper mould CAD mock-up</Figure.Caption>
-            </figure>
+            <CenteredFigure
+                src={mould}
+                alt="gripper-moulds-image"
+                styles={{ width: '50%' }}
+                caption="gripper mould CAD mock-up"
+            />
 
             <p>
                 Had the production of our system continued as normal, we would have continued to keep inline with our
