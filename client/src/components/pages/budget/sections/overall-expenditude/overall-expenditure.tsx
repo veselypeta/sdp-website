@@ -10,7 +10,7 @@ export const OverallExpenditureSection: React.FC = () => {
     return (
         <>
             <h2>Overall Expenditure</h2>
-            <Container>
+            <Container style={{ paddingBottom: '50px' }}>
                 <Row>
                     <Col>
                         <p>
