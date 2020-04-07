@@ -1,6 +1,5 @@
 .idea
 .vscode
-*.gif
 
 # Generated local files
 client/build
