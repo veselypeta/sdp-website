@@ -2,6 +2,7 @@ import * as React from 'react';
 import { HandlingConcurrentProcesses } from './sections/handling-concurrent-processes';
 import { SoftwareOperation } from './sections/software-operation';
 import { HowToUseSection } from './sections/how-to-use';
+import { HardwareSection } from './sections/hardware';
 
 const HowDoesItWork: React.FC = () => {
     return (
@@ -10,6 +11,7 @@ const HowDoesItWork: React.FC = () => {
             <HowToUseSection />
             <SoftwareOperation />
             <HandlingConcurrentProcesses />
+            <HardwareSection />
         </div>
     );
 };

@@ -7,6 +7,6 @@ export const getDB: () => JsonDB = () => {
     if (db) {
         return db;
     }
-    db = new JsonDB(new Config('build/db/sdp-db', true, false, '/'));
+    db = new JsonDB(new Config('build/db/sdp-db', true, true, '/'));
     return db;
 };
