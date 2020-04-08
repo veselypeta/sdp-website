@@ -1,11 +1,12 @@
 import * as React from 'react';
-import logo from '../../../images/logo.png';
+import { IntroSection } from './sections/intro';
+import { DescriptionSection } from './sections/description';
 
 const Home: React.FC = () => {
     return (
         <>
-            <h1>Home Page</h1>
-            <img src={logo} style={{ width: 400 }} alt="Pento-Icon" />
+            <IntroSection />
+            <DescriptionSection />
         </>
     );
 };

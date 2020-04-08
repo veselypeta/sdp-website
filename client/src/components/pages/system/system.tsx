@@ -4,7 +4,7 @@ import { AnimationCard } from '../../organisms/animation-card';
 
 const System: React.FC = () => {
     return (
-        <>
+        <div style={{ width: '100%' }}>
             <h1>System</h1>
             <Container>
                 <Row>
@@ -13,7 +13,7 @@ const System: React.FC = () => {
                     </Col>
                 </Row>
             </Container>
-        </>
+        </div>
     );
 };
 

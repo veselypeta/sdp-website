@@ -4,7 +4,7 @@
   "description": "### Prerequisites - node  -   12.10.0 or greater - npm   -   6.10.0 or greater",
   "main": "index.js",
   "scripts": {
-    "start": "tsc --esModuleInterop && node ./build/server/app.js",
+    "start": "rm -rf ./build && npm run build && tsc --esModuleInterop && node ./build/server/app.js",
     "start:watch": "nodemon",
     "start:client": "cd ./client && npm run start",
     "dev": "concurrently --kill-others-on-fail \"npm run start:client\" \"npm run start:watch\"",
