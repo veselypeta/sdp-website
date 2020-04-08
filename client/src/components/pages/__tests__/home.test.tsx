@@ -6,6 +6,6 @@ import '@testing-library/jest-dom/extend-expect';
 describe('home page', () => {
     it('renders correctly', () => {
         const { getByText } = renderWithRouter(<Home />);
-        getByText('Home Page');
+        getByText('PENTO');
     });
 });
