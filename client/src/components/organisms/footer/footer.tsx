@@ -7,7 +7,9 @@ export const Footer: React.FC = () => {
     return (
         <footer id="sticky-footer" className="py-4 bg-dark text-white-50" style={footerStyles}>
             <div className="container text-center">
-                <p>Copyright &copy; Pento 😜</p>
+                <span role="img" aria-label="copyright">
+                    Copyright &copy; Pento 😜
+                </span>
             </div>
         </footer>
     );

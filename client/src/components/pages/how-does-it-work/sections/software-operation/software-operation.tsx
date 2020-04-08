@@ -1,5 +1,7 @@
 import React from 'react';
+import { Row, Container, Col } from 'react-bootstrap';
 import RPIConnectionDiagram from '../../../../../images/rpi-connection-diagram.svg';
+import pressureSensor from '../../../../../images/pressure-sensor.jpg';
 import { CenteredFigure } from '../../../../atoms/centered-figure';
 
 export const SoftwareOperation: React.FC = () => {
@@ -28,12 +30,35 @@ export const SoftwareOperation: React.FC = () => {
                 cannot be read by the Raspberry Pi so we use an Arduino to read the analogue data and send the data to
                 the Pi through USB. The switches and motors are connected to the Pi directly through its GPIO ports.
             </p>
-
-            <CenteredFigure
-                src={RPIConnectionDiagram}
-                alt="Connection Diagram"
-                caption="Figure 1: Connection Diagram"
-            />
+            <Container>
+                <Row>
+                    <Col xs={6}>
+                        <CenteredFigure
+                            src={RPIConnectionDiagram}
+                            alt="Connection Diagram"
+                            caption="Figure 1: Connection Diagram"
+                            styles={{ width: '100%' }}
+                        />
+                    </Col>
+                    <Col xs={6}>
+                        <CenteredFigure
+                            src={pressureSensor}
+                            alt="Pressure Sensor"
+                            caption="Figure 2: Connection Diagram"
+                            styles={{ width: '80%' }}
+                        />
+                    </Col>
+                </Row>
+            </Container>
+            <p>
+                In this architecture the state is available globally to any process of the program. This is good; it is
+                simple and understandable, makes it easy to implement new features and enables easy prototyping. It is
+                however also dangerous for that same reason. Global variables can be read, changed and deleted by any
+                part of the code, which makes it really difficult to debug when problems will arise. Storing these
+                variables in files also introduces a lot of latency as the value must be read/written from disk, this is
+                an expensive operation. We also have to ensure that we have the proper privileges set on these files to
+                prevent any other process from being able to mess with them.
+            </p>
         </>
     );
 };
