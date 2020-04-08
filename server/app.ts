@@ -6,7 +6,7 @@ import cookieParser from 'cookie-parser';
 import { router as commentRouter } from './routes/comments';
 
 const app = express();
-const port = 5000;
+const port = 8080;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
