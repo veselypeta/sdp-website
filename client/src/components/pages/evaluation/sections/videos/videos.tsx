@@ -22,6 +22,16 @@ export const VideosSection: React.FC = () => {
                     allowFullScreen
                 />
             </div>
+            <div className="text-center">
+                <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/sLTaCGWUFL8"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                />
+            </div>
         </>
     );
 };
