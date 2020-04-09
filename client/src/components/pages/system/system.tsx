@@ -1,19 +1,20 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import { AnimationCard } from '../../organisms/animation-card';
+import { ConceptSection } from './sections/concept';
+import { FunctionalitySection } from './sections/functionality';
+import { CompetitorsSection } from './sections/competitors';
+import { UserInterfaceSection } from './sections/user-interface';
+import { FutureDevelopmentSection } from './sections/future-development';
 
 const System: React.FC = () => {
     return (
-        <div style={{ width: '100%' }}>
+        <>
             <h1>System</h1>
-            <Container>
-                <Row>
-                    <Col>
-                        <AnimationCard />
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+            <ConceptSection />
+            <FunctionalitySection />
+            <CompetitorsSection />
+            <UserInterfaceSection />
+            <FutureDevelopmentSection />
+        </>
     );
 };
 

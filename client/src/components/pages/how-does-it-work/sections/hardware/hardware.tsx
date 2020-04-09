@@ -101,8 +101,15 @@ export const HardwareSection: React.FC = () => {
                         <b>Rotating: </b>Opening a tightly shut jar is very difficult so great torque needs to be
                         applied to the rotation. We decided on using a worm drive mechanism that turns a large gear,
                         which then in turn is connected to the whole top gripping mechanism (fig. 5 above). Since during
-                        development this piece has to be assembled and disassembled quite often we decided to use the
-                        Tenon technique for connecting the gripper to the top rotator.
+                        development this piece has to be assembled and disassembled quite often we decided to use the{' '}
+                        <a
+                            href="https://en.wikipedia.org/wiki/Mortise_and_tenon"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Tenon technique
+                        </a>{' '}
+                        for connecting the gripper to the top rotator.
                     </p>
                     <Row>
                         <Col xs={4}>

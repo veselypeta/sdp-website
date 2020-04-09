@@ -19,7 +19,7 @@ export const TeamStructureSection: React.FC = () => {
                 <li>Sourcing, testing and implementing sensors</li>
                 <li>Creating promotional website</li>
             </ul>
-            <p style={headerStyle}>Hardware Team (Nimrod, Dylan, JD)</p>
+            <p style={headerStyle}>Hardware Team (Nimrod, Dylan, JD, Paulis)</p>
             <ul>
                 <li>Designing CAD models</li>
                 <li>Fabrication of parts (Laser-cutting, moulding)</li>
