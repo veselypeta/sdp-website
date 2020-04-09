@@ -9,6 +9,7 @@ import bailey from '../../../images/profile/bailey.jpg';
 import adam from '../../../images/profile/adam.jpg';
 import paulis from '../../../images/profile/paulis.jpg';
 import jen from '../../../images/profile/jen.jpg';
+import nimrod from '../../../images/profile/nimrod.jpg';
 import robyn from '../../../images/profile/robyn.png';
 
 export const GroupPhoto: React.FC = () => {
@@ -23,7 +24,7 @@ export const GroupPhoto: React.FC = () => {
             </CardGroup>
             <CardGroup>
                 <ProfileCard name={'Jen Logan'} src={jen} />
-                <ProfileCard name={'Nimrod Libman'} />
+                <ProfileCard name={'Nimrod Libman'} src={nimrod} />
                 <ProfileCard name={'Adam Masalski'} src={adam} />
                 <ProfileCard name={'Paulis Barzdins'} src={paulis} />
                 <ProfileCard name={'Robyn Greene'} src={robyn} />
