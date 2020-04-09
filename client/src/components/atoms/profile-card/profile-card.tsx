@@ -10,11 +10,7 @@ interface Props {
 export const ProfileCard: React.FC<Props> = (props: Props) => {
     return (
         <Card>
-            <Card.Img
-                variant="top"
-                src={props.src ? props.src : defaultAvatar}
-                style={{ width: '100%', height: '75%' }}
-            />
+            <Card.Img variant="top" src={props.src ? props.src : defaultAvatar} style={{ width: '100%' }} />
             <Card.Body
                 className="text-center"
                 style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}
