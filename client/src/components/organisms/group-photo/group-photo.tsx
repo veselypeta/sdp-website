@@ -2,6 +2,7 @@ import React from 'react';
 import { ProfileCard } from '../../atoms/profile-card';
 import { CardGroup } from 'react-bootstrap';
 import petr from '../../../images/profile/petr.jpg';
+import dylan from '../../../images/profile/dylan.jpg';
 
 export const GroupPhoto: React.FC = () => {
     return (
@@ -9,7 +10,7 @@ export const GroupPhoto: React.FC = () => {
             <CardGroup>
                 <ProfileCard name={'Jiewen Deng'} />
                 <ProfileCard name={'Petr Vesely'} src={petr} />
-                <ProfileCard name={'Dylan Thinnes'} />
+                <ProfileCard name={'Dylan Thinnes'} src={dylan} />
                 <ProfileCard name={'Bailey Brennan'} />
                 <ProfileCard name={'Han Fengzhi'} />
             </CardGroup>
