@@ -8,7 +8,9 @@ export const CommentReply: React.FC<Reply> = (props: Reply) => {
         <Card style={{ marginBottom: '5px', marginLeft: '1rem', width: '80%' }} border="primary">
             <Card.Header>
                 <Card.Title>{props.sender}</Card.Title>
-                <Card.Subtitle style={{ fontSize: '10', color: 'grey' }}>{date.toLocaleString()}</Card.Subtitle>
+                <Card.Subtitle style={{ fontSize: '10', color: 'grey' }}>
+                    {date.toLocaleString().substr(12, 5)}
+                </Card.Subtitle>
             </Card.Header>
             <Card.Body>{props.message}</Card.Body>
         </Card>
