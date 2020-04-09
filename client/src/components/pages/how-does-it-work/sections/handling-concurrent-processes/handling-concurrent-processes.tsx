@@ -29,7 +29,7 @@ export const HandlingConcurrentProcesses: React.FC = () => {
                 the whole operation of the robot; each thread reads the state from the files and will run its logic and
                 will update any required state which is then picked up by other running threads.
             </p>
-            <CenteredFigure src={threadModel} alt="thread-model" caption="Figure 2: Thread State Model" />
+            <CenteredFigure src={threadModel} alt="thread-model" caption="Thread State Model" />
         </>
     );
 };

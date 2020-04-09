@@ -36,7 +36,7 @@ export const SoftwareOperation: React.FC = () => {
                         <CenteredFigure
                             src={RPIConnectionDiagram}
                             alt="Connection Diagram"
-                            caption="Figure 1: Connection Diagram"
+                            caption="Connection Diagram"
                             styles={{ width: '100%' }}
                         />
                     </Col>
@@ -44,7 +44,7 @@ export const SoftwareOperation: React.FC = () => {
                         <CenteredFigure
                             src={pressureSensor}
                             alt="Pressure Sensor"
-                            caption="Figure 2: Connection Diagram"
+                            caption="Pressure Sensor"
                             styles={{ width: '80%' }}
                         />
                     </Col>
