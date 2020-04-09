@@ -1,5 +1,6 @@
 import React from 'react';
 import omniAccessibility from '../../../../../images/omni-accessibility.png';
+import competitorPricing from '../../../../../images/competitor-pricing.png';
 import sixInOne from '../../../../../images/6in1.png';
 import roboTwist from '../../../../../images/robot-twist.png';
 import multiFunc from '../../../../../images/multi-func.png';
@@ -18,13 +19,17 @@ export const CompetitorsSection: React.FC = () => {
                 that we would be able to avoid as many issues they raise as possible.
             </p>
             <p>
-                In our research, we found ~15 similar products to the Omni-Opener in terms of functionality and aims.
-                There are many more variations on each but we focused on the most similar items. This ranged from small
-                rubber circles intended to reduce grip strength needed to open jars by hand, to manual multi-functional
-                helper tools, to automated jar or can openers. What we found overwhelmingly was that there are rarely
-                solutions to opening on the market currently that are both multi-functional and automated. In fact,
-                hardly any systems are automated to the extent of the Omni-Opener, regardless of functionality.
+                In our research, we found ~15 similar products to the Omni-Opener in terms of functionality and aims. We
+                populated a spreadsheet with these products, and information about them such as their price,
+                functionality, comparison rating to our product, if they were made by a for-profit or not-for-profit
+                manufacturer, their successes and their failures. A snippet of the spreadsheet can be seen here. There
+                are many more variations on each but we focused on the most similar items. This ranged from small rubber
+                circles intended to reduce grip strength needed to open jars by hand, to manual multi-functional helper
+                tools, to automated jar or can openers. What we found overwhelmingly was that there are rarely solutions
+                to opening on the market currently that are both multi-functional and automated. In fact, hardly any
+                systems are automated to the extent of the Omni-Opener, regardless of functionality.
             </p>
+            <CenteredFigure src={competitorPricing} alt="Competitor Pricing" styles={{ width: '80%' }} />
             <p>
                 We have detailed below what we felt were the three most similar solutions to the Omni-Opener: the
                 RoboTwist: an automated jar opener, a ‘6-in-1 Opener’: a multi-functional helper tool to ease the
