@@ -22,17 +22,20 @@ export const CommentCard: React.FC<Comment> = ({ id, sender, message, timestamp 
     }, [id]);
 
     const parsedDate = new Date(timestamp);
-    const formattedTime = `${parsedDate.getHours()}:${parsedDate.getMinutes()}`;
+    const formattedTime = parsedDate.toLocaleString().substr(12, 5);
 
     return (
         <Card style={{ marginTop: '1rem' }}>
-            <Card.Body>
+            <Card.Header>
                 <Card.Title>{sender}</Card.Title>
-                <Card.Subtitle style={{ fontSize: '10', color: 'grey' }}>{`posted - ${formattedTime}`}</Card.Subtitle>
-                <Card.Text>{message}</Card.Text>
+                <Card.Subtitle style={{ fontSize: '10', color: 'grey' }}>{formattedTime}</Card.Subtitle>
+            </Card.Header>
+            <Card.Body>
+                <Card.Text style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>{message}</Card.Text>
             </Card.Body>
+            <hr />
             <Container style={{ margin: '5px' }} data-testid="replies">
-                <p>Replies</p>
+                <h5>Replies</h5>
                 {replies.map((r) => (
                     <CommentReply {...r} key={r.id} />
                 ))}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Container, Col } from 'react-bootstrap';
-import RPIConnectionDiagram from '../../../../../images/rpi-connection-diagram.svg';
+import RPIConnectionDiagram from '../../../../../images/full-connection-diagram.png';
 import pressureSensor from '../../../../../images/pressure-sensor.jpg';
 import { CenteredFigure } from '../../../../atoms/centered-figure';
 
