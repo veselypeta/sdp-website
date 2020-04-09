@@ -1,5 +1,5 @@
 import React from 'react';
-import { Figure } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { CenteredFigure } from '../../../../atoms/centered-figure';
 import mdf from '../../../../../images/mdf.jpg';
 import m12Threads from '../../../../../images/m12threads.png';
@@ -89,15 +89,14 @@ export const OverallExpenditureSection: React.FC = () => {
                 promoting our system. An overview of the forecast can be seen below:
             </p>
 
-            <figure className="text-center">
-                <a href={expenditureGraph}>
-                    <Figure.Image src={expenditureGraph} alt={'expenditure-graph-image'} style={{ width: '50%' }} />
-                </a>
-                <a href={costBreakdown}>
-                    <Figure.Image src={costBreakdown} alt={'cost-breakdown-image'} style={{ width: '30%' }} />
-                </a>
-                <Figure.Caption>Expenditure Graph (Left) - Cost Breakdown (Right)</Figure.Caption>
-            </figure>
+            <Row style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                <Col xs={6}>
+                    <CenteredFigure src={expenditureGraph} alt="Expenditure Graph" styles={{ width: '100%' }} />
+                </Col>
+                <Col xs={6}>
+                    <CenteredFigure src={costBreakdown} alt="CostBreakdown" styles={{ width: '100%' }} />
+                </Col>
+            </Row>
         </>
     );
 };
